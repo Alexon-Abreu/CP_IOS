@@ -1,0 +1,3 @@
+[submodule "ios101-lab1-mariokart-starter"]
+	path = ios101-lab1-mariokart-starter
+	url = https://github.com/codepath/ios101-lab1-mariokart-starter.git
