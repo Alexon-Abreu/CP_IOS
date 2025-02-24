@@ -30,6 +30,10 @@ class KeyboardController: NSObject,
     // Exercise 1: Return the correct number of items in a section
     // Tip: There's a helper method you can use located in this class
     // START YOUR CODE HERE
+      if section < keyboardRows.count
+      {
+          return keyboardRows[section].count
+      }
     return 0
     // END YOUR CODE HERE
   }
