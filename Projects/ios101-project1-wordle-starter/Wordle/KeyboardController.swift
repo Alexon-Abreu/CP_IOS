@@ -46,6 +46,9 @@ class KeyboardController: NSObject,
     // Exercise 4: Pass in the `didSelectString` closure to the KeyboardCell's corresponding property
     // START YOUR CODE HERE
     // ...
+      cell.didSelectString = didSelectString
+      let selectString = keyboardRows[indexPath.section][indexPath.row]
+      cell.configure(with: selectString)
     // END YOUR CODE HERE
     return cell
   }
