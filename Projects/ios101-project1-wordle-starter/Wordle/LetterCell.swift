@@ -33,6 +33,7 @@ class LetterCell: UICollectionViewCell {
         letterLabel.text = ""
     }
     
+
     /*
      Exercise 9:
      Set the correct background color depending on the style that is passed in:
