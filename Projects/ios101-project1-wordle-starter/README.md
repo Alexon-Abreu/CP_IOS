@@ -2,7 +2,8 @@
 
 Submitted by: Alexon Abreu
 
-Wordle is an app that stores a secret 5 letter word and allow users to up to 6 attempts to gues the word correctly while also receiving hint along the way.
+Wordle is an app that chooses a random 5 letter word and allow users to up to 6 attempts
+to gues the word correctly while also receiving hints along the way.
 
 Time spent: 3 hours spent in total
 
