@@ -64,9 +64,16 @@ class ViewController: UIViewController,
     // Exercise 1: Assign the result of MushroomGenerator.maybeGenerateMushroomPowerup()
     // to a variable. Print something if it's not nil
     // ...
-    
+      let powerup = MushroomGenerator.maybeGenerateMushroomPowerup()
+      if powerup != nil {
+          useMushroomPowerupOnMario(powerup: powerup!)
+          print("Got a powerup!")
+      } else {
+          print("Didn't get a powerup")
+      }
     // Exercise 2: Use the powerup on Mario using the useMushroomPowerupOnMario function
-    // ...
+    // ... lesson is Force-unwrapping an optional value that contains nil will crash the app.
+      
   }
   
   private func useMushroomPowerupOnMario(powerup: MushroomPowerup) {
@@ -80,69 +87,123 @@ class ViewController: UIViewController,
     decipher(mysteryBox: mysteryBox)
   }
   
-  // Exercise 3: Decipher the mystery box and apply the correct effect on mario
-  private func decipher(mysteryBox: MysteryBox) {
-    
-  }
-  
-  private func translate(kart: UIView?,
-                         by xPosition: Double) {
-    guard let kart = kart else { return }
-    UIView.animateKeyframes(withDuration: 0.5 - 0.05 * Double(speedMultiplier),
-                            delay: 0.0) {
-      kart.center.x = kart.center.x + xPosition
+// Exercise 3: Decipher the mystery box and apply the correct effect on mario
+    private func decipher(mysteryBox: MysteryBox) {
+        // Attempt to cast "mysteryEffect" to a Dictionary with a key of type String and value of type String
+        // Assign the result to the variable "effectDictionary"
+        guard
+            let effectDictionary = mysteryBox.mysteryEffect as? [String: String]
+        else {
+            // If the cast fails, then throw an error and early return
+            assertionFailure("Expecting value of type dictionary")
+            return
+        }
+        // Make sure the effectDictionary["effect"] has a non-nil value
+        // and assign the result to the "effect" variable
+        guard let effect = effectDictionary["effect"] else {
+            // If the value is nil, throw an error and early return
+            assertionFailure("Expecting value of type String")
+            return
+        }
+        // Apply the correct effect to Mario
+        if effect == "translate" {
+            translate(kart: kartView1, by: view.bounds.width)
+        } else if effect == "rotate" {
+            rotate(kart: kartView1)
+        } else if effect == "scale" {
+            scale(kart: kartView1)
+        } else {
+            assertionFailure("Unexpected effect")
+        }
     }
-  }
-  
-  private func rotate(kart: UIView) {
-    UIView.animate(withDuration: 0.25) {
-      self.kartView1.transform = self.kartView1.transform.rotated(by: 180.0)
+
+    private func translate(
+        kart: UIView?,
+        by xPosition: Double
+    ) {
+        guard let kart = kart else { return }
+        UIView.animateKeyframes(
+            withDuration: 0.5 - 0.05 * Double(speedMultiplier),
+            delay: 0.0
+        ) {
+            kart.center.x = kart.center.x + xPosition
+        }
     }
-  }
-  
-  private func scale(kart: UIView) {
-    UIView.animate(withDuration: 0.25) {
-      self.kartView1.transform = self.kartView1.transform.scaledBy(x: 1.05, y: 1.05)
+
+    private func rotate(kart: UIView) {
+        UIView.animate(withDuration: 0.25) {
+            self.kartView1.transform = self.kartView1.transform.rotated(
+                by: 180.0)
+        }
     }
-  }
-  
-  // Called with the user taps on the settings button
-  @IBAction func didTapSettingsButton(_ sender: UIButton) {
-    performSegue(withIdentifier: "SettingsViewControllerSegue", sender: nil)
-  }
-  
-  // Prepare the settings screen before showing it to the user
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "SettingsViewControllerSegue" {
-      let navigationController = segue.destination as! UINavigationController
-      let viewController = navigationController.topViewController as! SettingsViewController
-      viewController.delegate = self
-      viewController.preloadedSettings = settings
+
+    private func scale(kart: UIView) {
+        UIView.animate(withDuration: 0.25) {
+            self.kartView1.transform = self.kartView1.transform.scaledBy(
+                x: 1.05, y: 1.05)
+        }
     }
-  }
-  
-  // Applies the correct settings after exiting the settings screen
-  // This function is called before dismissing the settings screen
-  func didChangeSettings(settings: [String : Any]) {
-    self.settings = settings
-    applyNumKartsSetting(settings)
-    applyKartSizeSetting(settings)
-    applySpeedMultiplierSetting(settings)
-  }
+
+    // Called with the user taps on the settings button
+    @IBAction func didTapSettingsButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "SettingsViewControllerSegue", sender: nil)
+    }
+
+    // Prepare the settings screen before showing it to the user
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SettingsViewControllerSegue" {
+            let navigationController =
+                segue.destination as! UINavigationController
+            let viewController =
+                navigationController.topViewController
+                as! SettingsViewController
+            viewController.delegate = self
+            viewController.preloadedSettings = settings
+        }
+    }
+
+    // Applies the correct settings after exiting the settings screen
+    // This function is called before dismissing the settings screen
+    func didChangeSettings(settings: [String: Any]) {
+        self.settings = settings
+        applyNumKartsSetting(settings)
+        applyKartSizeSetting(settings)
+        applySpeedMultiplierSetting(settings)
+    }
   
   // Exercise 4: Implement applyNumKartsSetting to show the correct number of karts
   func applyNumKartsSetting(_ settings: [String : Any]) {
-    
+      // Optionally cast the value of `settings["numKarts"]` to an Int and assign it to `numKarts`
+        guard let numKarts = settings["numKarts"] as? Int else {
+          // If the cast fails, then throw an assertion and early terminate
+          assertionFailure("Expecting Int, but got nil")
+          return
+        }
+        // unhide the correct number of karts
+        kartView0.isHidden = numKarts < 2
+        kartView2.isHidden = numKarts < 3
   }
   
   // Exercise 5: Implement applyKartSizeSetting to set the correct kart size
   func applyKartSizeSetting(_ settings: [String : Any]) {
-    
+      guard let kartSizeMultiplier = settings["kartSize"] as? Int else {
+          assertionFailure("Expecting Int, but got nil")
+          return
+        }
+        let kartSize = 1.0 + 0.05 * Double(kartSizeMultiplier)
+        let transform = CGAffineTransformIdentity.scaledBy(x: kartSize, y: kartSize)
+        kartView0.transform = transform
+        kartView1.transform = transform
+        kartView2.transform = transform
   }
   
   // Exercise 6: Implement applySpeedMultiplierSetting to set the correct speed
   func applySpeedMultiplierSetting(_ settings: [String : Any]) {
-    
+      guard let speedMultiplier = settings["speedMultiplier"] as? Int else {
+          assertionFailure("Expecting Int, but got nil")
+          return
+        }
+        self.speedMultiplier = Double(speedMultiplier)
   }
 }
 
