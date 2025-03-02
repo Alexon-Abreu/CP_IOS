@@ -96,6 +96,10 @@ class BoardController: NSObject,
   private func applyThemeSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
     // ...
+      if let rawTheme = settings[kWordThemeKey] as? String,
+      let theme = WordTheme(rawValue: rawTheme) {
+          goalWord = WordGenerator.generateGoalWord(with: theme)
+      }
     // END YOUR CODE HERE
   }
   
