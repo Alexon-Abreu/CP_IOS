@@ -1,10 +1,12 @@
-# Project 2 - *Name of App Here*
+# Project 2 - Wordle
 
-Submitted by: **Your Name Here**
+Submitted by: Alexon Abreu
 
-**Name of your app** is an app that ... [TODO] 
+Wordle is an app that chooses a random 5 letter word and allow users to up to 6 attempts
+to gues the word correctly while also receiving hints along the way. This version of the
+app allows you to customize the # of attempts, length of word, theme, etc..
 
-Time spent: **X** hours spent in total
+Time spent: 3 hours spent in total
 
 ## Required Features
 
