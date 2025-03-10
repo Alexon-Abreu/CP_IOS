@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0093A8D82D7E28D000CA0252 /* TriviaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0093A8D72D7E28D000CA0252 /* TriviaConfig.swift */; };
+		009B6D0B2D7D623800C2C1EF /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009B6D0A2D7D623800C2C1EF /* TriviaViewController.swift */; };
 		9926AB2429DFAE1400860532 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9926AB2329DFAE1400860532 /* AppDelegate.swift */; };
 		9926AB2629DFAE1400860532 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9926AB2529DFAE1400860532 /* SceneDelegate.swift */; };
 		9926AB2B29DFAE1400860532 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9926AB2929DFAE1400860532 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0093A8D72D7E28D000CA0252 /* TriviaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaConfig.swift; sourceTree = "<group>"; };
+		009B6D0A2D7D623800C2C1EF /* TriviaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
 		9926AB2029DFAE1400860532 /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9926AB2329DFAE1400860532 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9926AB2529DFAE1400860532 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,7 +101,9 @@
 		9926AB2229DFAE1400860532 /* Trivia */ = {
 			isa = PBXGroup;
 			children = (
+				009B6D0A2D7D623800C2C1EF /* TriviaViewController.swift */,
 				9926AB2329DFAE1400860532 /* AppDelegate.swift */,
+				0093A8D72D7E28D000CA0252 /* TriviaConfig.swift */,
 				9926AB2529DFAE1400860532 /* SceneDelegate.swift */,
 				9926AB2929DFAE1400860532 /* Main.storyboard */,
 				9926AB2C29DFAE1400860532 /* Assets.xcassets */,
@@ -256,6 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9926AB2429DFAE1400860532 /* AppDelegate.swift in Sources */,
+				009B6D0B2D7D623800C2C1EF /* TriviaViewController.swift in Sources */,
+				0093A8D82D7E28D000CA0252 /* TriviaConfig.swift in Sources */,
 				9926AB2629DFAE1400860532 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
