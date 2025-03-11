@@ -30,17 +30,60 @@ class TriviaViewController: UIViewController {
         super.viewDidLoad()
         
         
-    questions = [
-                
-                TriviaQuestion(question: "Which team performed the song 'Easy'", correctAnswer: "LE SSERAFIM", wrongAnswers: ["TXT", "New Jeans", "(G)I-DLE"], category: .kpop),
-                TriviaQuestion(question: "Which K-pop group performed the song 'Dynamite'?", correctAnswer: "BTS", wrongAnswers: ["EXO", "Blackpink", "TWICE"], category: .kpop),
-                TriviaQuestion(question: "What type of tea is typically used in traditional boba drinks?", correctAnswer: "Black tea", wrongAnswers: ["Green tea", "Oolong tea", "White tea"], category: .boba),
-                TriviaQuestion(question: "What is the tapioca pearl in boba made from?", correctAnswer: "Cassava root", wrongAnswers: ["Rice flour", "Wheat flour", "Potato starch"], category: .boba),
-                TriviaQuestion(question: "Who founded Apple Inc.?", correctAnswer: "Steve Jobs", wrongAnswers: ["Bill Gates", "Mark Zuckerberg", "Elon Musk"], category: .tech),
-                TriviaQuestion(question: "What does 'HTTP' stand for in web technology?", correctAnswer: "Hypertext Transfer Protocol", wrongAnswers: ["Hyperlink Text Transfer Protocol", "Hypertext Transmission Protocol", "High Transmission Transfer Protocol"], category: .tech)
-            ]
+
+
+questions = [
+        // Sports questions
+        TriviaQuestion(
+            question: "Which soccer team has the most UEFA Champions League titles?",
+            correctAnswer: "Real Madrid",
+            wrongAnswers: ["Barcelona", "Bayern Munich", "Liverpool"],
+            category: .Sports
+        ),
+        TriviaQuestion(
+            question: "Who won the NBA championship in 2021?",
+            correctAnswer: "Milwaukee Bucks",
+            wrongAnswers: ["Los Angeles Lakers", "Phoenix Suns", "Golden State Warriors"],
+            category: .Sports
+        ),
+        
+        // Music questions
+        TriviaQuestion(
+            question: "Which artist is known as the 'King of Pop'?",
+            correctAnswer: "Michael Jackson",
+            wrongAnswers: ["Prince", "Elvis Presley", "Freddie Mercury"],
+            category: .Music
+        ),
+        TriviaQuestion(
+            question: "Which band performed the song 'Bohemian Rhapsody'?",
+            correctAnswer: "Queen",
+            wrongAnswers: ["The Beatles", "Pink Floyd", "Led Zeppelin"],
+            category: .Music
+        ),
+        
+        // Video Game questions
+        TriviaQuestion(
+            question: "Which company developed the video game 'The Legend of Zelda' series?",
+            correctAnswer: "Nintendo",
+            wrongAnswers: ["Sony", "Microsoft", "Square Enix"],
+            category: .VideoGame
+        ),
+        TriviaQuestion(
+            question: "Which popular battle royale game was developed by Epic Games?",
+            correctAnswer: "Fortnite",
+            wrongAnswers: ["PUBG", "Apex Legends", "Call of Duty: Warzone"],
+            category: .VideoGame
+        )
+    ]
+
 //            
             // Display first question
+            QuestionView.numberOfLines = 0
+            QuestionView.lineBreakMode = .byWordWrapping
+        
+            QuestionView.layer.cornerRadius = 10
+            QuestionView.clipsToBounds = true
+
             displayQuestion()
 
         // Do any additional setup after loading the view.
@@ -50,13 +93,16 @@ class TriviaViewController: UIViewController {
     func displayQuestion() {
         let currentQuestion = questions[currentQuestionIndex]
         
-        QuestionNumber.text = "Question \(currentQuestionIndex + 1)"
-        QuestionCategory.text = "Category:  \(currentQuestion.category.rawValue)"
+        QuestionNumber.text = "Question \(currentQuestionIndex + 1)/6"
+        QuestionCategory.text = "Category: \(currentQuestion.category)"
         QuestionView.text = currentQuestion.question
         
         let shuffledAnswers = currentQuestion.shuffledAnswers
         for (index, button) in answerChoices.enumerated() {
             button.setTitle(shuffledAnswers[index], for: .normal)
+            button.contentHorizontalAlignment = .center
+            button.titleLabel?.textAlignment = .center
+            button.setTitleColor(.white, for: .normal)
         }
     }
  
