@@ -31,8 +31,7 @@ The following **additional** features are implemented:
 
 ## Notes
 
-Describe any challenges encountered while building the app.
-    None encountered
+Describe any challenges encountered while building the app: None encountered
 
 ## License
 
