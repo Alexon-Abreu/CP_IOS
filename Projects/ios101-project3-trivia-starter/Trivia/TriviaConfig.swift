@@ -24,4 +24,8 @@ struct TriviaQuestion {
     }
 }
 
-
+enum Category: String {
+    case Sports
+    case Music
+    case VideoGame
+}
