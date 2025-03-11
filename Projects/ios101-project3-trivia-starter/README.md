@@ -1,8 +1,8 @@
-# Project 3 - *Name of App Here*
+# Project 3 - *Trivia*
 
-Submitted by: **Your Name Here**
+Submitted by: **Alexon Abreu**
 
-**Name of your app** is an app that ... [TODO] 
+**Trivia** is an app that ... [TODO] 
 
 Time spent: **X** hours spent in total
 
