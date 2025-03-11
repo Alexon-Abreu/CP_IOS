@@ -2,9 +2,9 @@
 
 Submitted by: **Alexon Abreu**
 
-**Trivia** is an app that ... [TODO] 
+**Trivia** is a fun app that asks you multiple-choice questions to see how well you know your stuff, lets you track your score, and allows you to play again. 
 
-Time spent: **X** hours spent in total
+Time spent: **5** hours spent in total
 
 ## Required Features
 
@@ -20,7 +20,7 @@ The following **optional** features are implemented:
 - [ ] User can use the vertical orientation of the app on any device
 - [x] User can track the question they are on and how many questions are left
 - [x] User can see how many questions they got correct after answering all questions
-- [ ] User should be able to restart the game after they've finished answering all questions
+- [x] User should be able to restart the game after they've finished answering all questions
 
 The following **additional** features are implemented:
 
@@ -28,17 +28,17 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
-
-[Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
+[Guide]](https://imgur.com/a/OOnO5AS.gif) .
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Describe any challenges encountered while building the app:
+    learning to use the interface builder (IB) and defining logic
+    for elements.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2025] [Alexon Abreu]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
