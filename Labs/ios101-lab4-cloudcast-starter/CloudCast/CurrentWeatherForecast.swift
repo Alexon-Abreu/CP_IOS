@@ -26,6 +26,14 @@ struct CurrentWeatherForecast Decodable{
   }
 }
     
+private enum CodingKeys: String, CodingKey {
+    case windSpeed = "windspeed"
+    case windDirection = "winddirection"
+    case temperature = "temperature"
+    case weatherCodeRaw = "weathercode"
+  }
+
+
 // Based on https://open-meteo.com/en/docs
 enum WeatherCode: Int {
   case clearSky = 0
