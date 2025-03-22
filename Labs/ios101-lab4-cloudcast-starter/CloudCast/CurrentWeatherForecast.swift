@@ -16,6 +16,16 @@ struct WeatherAPIResponse: Decodable {
   }
 }
 
+struct CurrentWeatherForecast Decodable{
+  let windSpeed: Double
+  let windDirection: Double
+  let temperature: Double
+  let weatherCodeRaw: Int
+  var weatherCode: WeatherCode {
+    return WeatherCode(rawValue: weatherCodeRaw) ?? .clearSky
+  }
+}
+    
 // Based on https://open-meteo.com/en/docs
 enum WeatherCode: Int {
   case clearSky = 0
