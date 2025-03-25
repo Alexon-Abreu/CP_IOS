@@ -29,7 +29,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-[Guide]](https://imgur.com/a/zadcU5z)
+[Guide]](https://imgur.com/a/zadcU5z.gif)
 
 ## Notes
 
