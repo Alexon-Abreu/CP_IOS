@@ -33,28 +33,30 @@ class TriviaViewController: UIViewController {
               }
   }
   
-  private func updateQuestion(withQuestionIndex questionIndex: Int) {
+private func updateQuestion(withQuestionIndex questionIndex: Int) {
     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
     let question = questions[questionIndex]
-    questionLabel.text = question.question
-    categoryLabel.text = question.category
-    let answers = ([question.correctAnswer] + question.incorrectAnswers).shuffled()
+    // Decode the HTML entities for the question text:
+    questionLabel.text = question.question.decodedHTML
+    categoryLabel.text = question.category.decodedHTML
+
+    let answers = ([question.correctAnswer] + question.incorrectAnswers).map { $0.decodedHTML }.shuffled()
     if answers.count > 0 {
-      answerButton0.setTitle(answers[0], for: .normal)
+        answerButton0.setTitle(answers[0], for: .normal)
     }
     if answers.count > 1 {
-      answerButton1.setTitle(answers[1], for: .normal)
-      answerButton1.isHidden = false
+        answerButton1.setTitle(answers[1], for: .normal)
+        answerButton1.isHidden = false
     }
     if answers.count > 2 {
-      answerButton2.setTitle(answers[2], for: .normal)
-      answerButton2.isHidden = false
+        answerButton2.setTitle(answers[2], for: .normal)
+        answerButton2.isHidden = false
     }
     if answers.count > 3 {
-      answerButton3.setTitle(answers[3], for: .normal)
-      answerButton3.isHidden = false
+        answerButton3.setTitle(answers[3], for: .normal)
+        answerButton3.isHidden = false
     }
-  }
+}
   
   private func updateToNextQuestion(answer: String) {
     if isCorrectAnswer(answer) {
