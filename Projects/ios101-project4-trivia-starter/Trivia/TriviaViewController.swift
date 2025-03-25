@@ -36,7 +36,8 @@ class TriviaViewController: UIViewController {
 private func updateQuestion(withQuestionIndex questionIndex: Int) {
     currentQuestionNumberLabel.text = "Question: \(questionIndex + 1)/\(questions.count)"
     let question = questions[questionIndex]
-    // Decode the HTML entities for the question text:
+
+    // Decoding the HTML entities for the question text:
     questionLabel.text = question.question.decodedHTML
     categoryLabel.text = question.category.decodedHTML
 
@@ -74,18 +75,25 @@ private func updateQuestion(withQuestionIndex questionIndex: Int) {
     return answer == questions[currQuestionIndex].correctAnswer
   }
   
-  private func showFinalScore() {
+private func showFinalScore() {
     let alertController = UIAlertController(title: "Game over!",
                                             message: "Final score: \(numCorrectQuestions)/\(questions.count)",
                                             preferredStyle: .alert)
-    let resetAction = UIAlertAction(title: "Restart", style: .default) { [unowned self] _ in
-      currQuestionIndex = 0
-      numCorrectQuestions = 0
-      updateQuestion(withQuestionIndex: currQuestionIndex)
+    let resetAction = UIAlertAction(title: "Restart", style: .default) { [weak self] _ in
+        guard let self = self else { return }
+        self.currQuestionIndex = 0
+        self.numCorrectQuestions = 0
+        
+        // Fetch a new set of questions
+        TriviaQuestionServ.fetchQuestion(amount: 10, difficulty: "medium") { [weak self] fetchedQuestions in
+            guard let self = self else { return }
+            self.questions = fetchedQuestions
+            self.updateQuestion(withQuestionIndex: 0)
+        }
     }
     alertController.addAction(resetAction)
     present(alertController, animated: true, completion: nil)
-  }
+}
   
   private func addGradient() {
     let gradientLayer = CAGradientLayer()
