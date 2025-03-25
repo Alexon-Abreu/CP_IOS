@@ -1,5 +1,5 @@
 //
-//  TriviaQuestionService.swift
+//  TriviaQuestionServ.swift
 //  Trivia
 //
 //  Created by Alexon Abreu on 3/24/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TriviaQuestionService {
+class TriviaQuestionServ {
     static func fetchQuestion(amount: Int,
                               difficulty: String,
                               completion: (([TriviaQuestion]) -> Void)? = nil) {
