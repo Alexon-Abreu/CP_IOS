@@ -2,9 +2,9 @@
 
 Submitted by: **Alexon Abreu**
 
-**Tumblr Feed** is an app that displays vertical list of images with text descriptions
+**Tumblr Feed** is an app that utilizes the Tumblr API to display media posts with text descriptions.
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
@@ -25,7 +25,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-![Walkthrough Video](https://github.com/Alexon-Abreu/CP_IOS/blob/dfabc80f0a81600ac4d9a6830444616990efe118/Projects/ios101-project5-tumblr-starter/ScreenRecording2025-04-01at12.34.01AM-ezgif.com-video-to-gif-converter.gif)
+![Walkthrough Video](https://github.com/Alexon-Abreu/CP_IOS/blob/89ba06491b56c3069f3c5b6da8044bb9cac5d3b3/Projects/ios101-project5-tumblr-starter/Demo.gif)
 
 ## Notes
 
