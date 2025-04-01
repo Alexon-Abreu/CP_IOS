@@ -7,26 +7,38 @@ import UIKit
 import Nuke
 
 class ViewController: UIViewController, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
 
     @IBOutlet weak var tableView: UITableView!
     
+    private var posts: [Post] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        fetchPosts()
         tableView.dataSource = self
+        fetchPosts()
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return posts.count
+        }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+            let post = posts[indexPath.row]
+            cell.labelDescriptionOutlet.text = post.summary
+            
+            // getting the first photo in the post's photos array.
+            if let photo = post.photos.first {
+                let imageUrl = photo.originalSize.url
+                print("Loading image from URL: \(imageUrl)")
+                Nuke.loadImage(with: imageUrl, into: cell.imageViewOutlet)
+            } else {
+                cell.imageViewOutlet.image = nil
+            }
+            
+            return cell
+        }
 
 
     func fetchPosts() {
@@ -51,9 +63,8 @@ class ViewController: UIViewController, UITableViewDataSource {
                 let blog = try JSONDecoder().decode(Blog.self, from: data)
 
                 DispatchQueue.main.async { [weak self] in
-
                     let posts = blog.response.posts
-
+                    self?.posts = posts
 
                     print("✅ We got \(posts.count) posts!")
                     for post in posts {
