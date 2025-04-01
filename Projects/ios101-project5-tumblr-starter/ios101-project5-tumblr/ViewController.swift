@@ -22,10 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
         @objc func refreshData() {
-       // Simulate data fetching (replace with actual API call)
-       DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-           self.tableView.reloadData()  // Reload table data
-           self.refreshController.endRefreshing()  // Stop refreshing animation
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.tableView.reloadData()
+                self.refreshController.endRefreshing()
        }
     }
 
