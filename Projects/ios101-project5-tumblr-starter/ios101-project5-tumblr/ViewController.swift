@@ -70,6 +70,9 @@ class ViewController: UIViewController, UITableViewDataSource {
                     for post in posts {
                         print("🍏 Summary: \(post.summary)")
                     }
+                    
+                    // we need this to load the content, otherwise we'll have a blank screen.
+                    self?.tableView.reloadData()
                 }
 
             } catch {
