@@ -11,11 +11,22 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     private var posts: [Post] = []
+    let refreshController = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshController.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl = refreshController
         tableView.dataSource = self
         fetchPosts()
+    }
+
+        @objc func refreshData() {
+       // Simulate data fetching (replace with actual API call)
+       DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+           self.tableView.reloadData()  // Reload table data
+           self.refreshController.endRefreshing()  // Stop refreshing animation
+       }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
