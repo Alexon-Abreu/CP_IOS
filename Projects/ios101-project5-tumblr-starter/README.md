@@ -1,8 +1,8 @@
-# Project 5 - *Name of App Here*
+# Project 5 - *Tumblr Feed*
 
-Submitted by: **Your Name Here**
+Submitted by: **Alexon Abreu**
 
-**Name of your app** is an app that ... [TODO] 
+**Tumblr Feed** is an app that displays vertical list of images with text descriptions
 
 Time spent: **X** hours spent in total
 
@@ -10,14 +10,14 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] App has a configured table view and table view call
-- [ ] App populates the table view with data fetched from an API
+- [x] App has a configured table view and table view call
+- [x] App populates the table view with data fetched from an API
 
 
 The following **optional** features are implemented:
 
 - [ ] App fetches posts from a different Tumblr blog
-- [ ] App has a refresh control to update the table view
+- [x] App has a refresh control to update the table view
 
 The following **additional** features are implemented:
 
@@ -25,17 +25,15 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
-
-[Guide](https://www.youtube.com/watch?v=GA92eKlYio4) .
+[Guide]() .
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+No challenges encountered.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2025] [Alexon Abreu]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
