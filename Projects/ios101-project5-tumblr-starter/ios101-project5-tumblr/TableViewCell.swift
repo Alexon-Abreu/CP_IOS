@@ -9,9 +9,9 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var tumblrCellImage: UIImageView!
+    @IBOutlet weak var postImageView: UIImageView!
     
-    @IBOutlet weak var tumblrCellLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
