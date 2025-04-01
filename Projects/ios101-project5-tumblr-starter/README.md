@@ -25,7 +25,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-[Guide]() .
+[Guide](Projects/ios101-project5-tumblr-starter/ScreenRecording2025-04-01at12.34.01AM-ezgif.com-video-to-gif-converter.gif) .
 
 ## Notes
 
