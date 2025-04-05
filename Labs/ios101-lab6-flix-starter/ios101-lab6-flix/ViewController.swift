@@ -64,9 +64,12 @@ class ViewController: UIViewController, UITableViewDataSource {
 
         // Assign table view data source
         tableView.dataSource = self
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         fetchMovies()
     }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,6 +88,21 @@ class ViewController: UIViewController, UITableViewDataSource {
 
         detailViewController.movie = selectedMovie
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // Customary to call the overridden method on `super` any time you override a method.
+        super.viewWillAppear(animated)
+
+        // get the index path for the selected row
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+
+            // Deselect the currently selected row
+            tableView.deselectRow(at: selectedIndexPath, animated: animated)
+        }
+    }
+    
 
     // Fetches a list of popular movies from the TMDB API
     private func fetchMovies() {
