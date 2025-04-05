@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 
 ## Video Walkthrough
 
-![Walkthrough Video](https://github.com/Alexon-Abreu/CP_IOS/blob/89ba06491b56c3069f3c5b6da8044bb9cac5d3b3/Projects/ios101-project5-tumblr-starter/Demo.gif)
+![Walkthrough Video]()
 
 
 ## License
