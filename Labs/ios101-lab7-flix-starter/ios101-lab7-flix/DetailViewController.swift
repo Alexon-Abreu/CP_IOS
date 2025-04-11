@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var overviewTextView: UITextView!
     @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
 
     // TODO: Add favorite button outlet
 
