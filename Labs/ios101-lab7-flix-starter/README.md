@@ -1,4 +1,4 @@
-## Lab 6: Flix Detail
+## Lab 7: Flix Detail
 
 ### Overview
 
