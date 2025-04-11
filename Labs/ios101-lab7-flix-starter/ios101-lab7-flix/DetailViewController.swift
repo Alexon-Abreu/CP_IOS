@@ -17,6 +17,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
+    @IBAction func didTapFavoriteButton(_ sender: UIButton)
+    {
+        // Set the button's isSelected state to the opposite of it's current value.
+        sender.isSelected = !sender.isSelected
+    }
+    
+    
 
     // TODO: Add favorite button outlet
 
