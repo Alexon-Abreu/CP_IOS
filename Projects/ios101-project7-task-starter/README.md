@@ -1,21 +1,22 @@
-# Project 7 - *Name of App Here*
+# Project 7 - *Task App*
 
-Submitted by: **Your Name Here**
+Submitted by: **Alexon Abreu**
 
-**Name of your app** is an app that ... [TODO] 
+**Task App** is an app that helps users manage their tasks. The app allows users view all their tasks in a list, add new tasks, delete tasks, and utilize a calendar view to display their tasks as well.
 
-Time spent: **X** hours spent in total
+
+Time spent: **1** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] App displays a list of tasks
-- [ ] Users can add tasks to the list
-- [ ] Session persists when application is closed and relaunched (tasks dont get deleted when closing app) 
-- [ ] Note: You have to quit the app, not minimize it, in order to see the persistence.
-- [ ] Tasks can be deleted
-- [ ] Users have a calendar view via navigation controller that displays tasks	
+- [x] App displays a list of tasks
+- [x] Users can add tasks to the list
+- [x] Session persists when application is closed and relaunched (tasks dont get deleted when closing app) 
+- [x] Note: You have to quit the app, not minimize it, in order to see the persistence.
+- [x] Tasks can be deleted
+- [x] Users have a calendar view via navigation controller that displays tasks	
 
 
 The following **additional** features are implemented:
