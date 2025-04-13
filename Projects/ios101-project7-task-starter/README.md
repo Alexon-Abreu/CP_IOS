@@ -26,7 +26,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-![Walkthrough Video]()
+![Walkthrough Video](https://github.com/Alexon-Abreu/CP_IOS/blob/f72fc27f7e54e3dc0652bb03623a36ff2803bdd6/Projects/ios101-project7-task-starter/demo.gif)
 
 
 ## License
