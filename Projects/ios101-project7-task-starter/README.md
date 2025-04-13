@@ -21,23 +21,17 @@ The following **required** functionality is completed:
 
 The following **additional** features are implemented:
 
-- [ ] Tasks can be toggled completed
-- [ ] User can edit tasks by tapping on the task in the feed view
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Tasks can be toggled completed
+- [x] User can edit tasks by tapping on the task in the feed view
 
 ## Video Walkthrough
 
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
+![Walkthrough Video]()
 
-[Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
-
-## Notes
-
-Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2025] [Alexon Abreu]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
