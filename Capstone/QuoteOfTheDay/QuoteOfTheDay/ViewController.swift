@@ -24,22 +24,22 @@ class ViewController: UIViewController {
   
   
    func loadDailyQuote() {
-           QuoteFetcher.shared.fetchDailyQuote { [weak self] zenQuote, error in
-               DispatchQueue.main.async {
-                   if let error = error {
-                       print("Error fetching quote: \(error)")
-                       self?.dailyQuote.text = "Failed to load quote."
-                       return
-                   }
+       QuoteFetcher.shared.fetchDailyQuote { [weak self] zenQuote, error in
+           DispatchQueue.main.async {
+               if let error = error {
+                   print("Error fetching quote: \(error)")
+                   self?.dailyQuote.text = "Failed to load quote."
+                   self?.dailyQuoteAuthor.text = "" // clearing the previous author
+                   return
+               }
 
 
-                   if let quote = zenQuote {
-                       self?.dailyQuote.text = "\"\(quote.q)\" - \(quote.a)"
-                   }
+               if let quote = zenQuote {
+                   self?.dailyQuote.text = "\"\(quote.q)\""
+                   self?.dailyQuoteAuthor.text = "- \(quote.a)"
                }
            }
        }
+   }
   
-  
-
 }
