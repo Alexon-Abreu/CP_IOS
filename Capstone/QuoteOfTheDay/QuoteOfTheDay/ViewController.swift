@@ -13,8 +13,8 @@ class ViewController: UIViewController {
   
    @IBOutlet weak var dailyQuote: UILabel!
    @IBOutlet weak var dailyQuoteAuthor: UILabel!
-  
-  
+    @IBOutlet weak var favoriteButton: UIButton!
+    
    override func viewDidLoad() {
        super.viewDidLoad()
        // Do any additional setup after loading the view.

@@ -32,13 +32,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3f-Xv-LT9">
-                                <rect key="frame" x="147" y="565" width="113" height="102"/>
+                                <rect key="frame" x="184" y="571" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="57"/>
                                 <color key="tintColor" red="0.89019607840000003" green="0.85490196080000003" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal">
                                     <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21"/>
                                 </state>
                             </button>
                         </subviews>
@@ -48,6 +49,7 @@
                     <connections>
                         <outlet property="dailyQuote" destination="O4M-7V-ugR" id="T2S-Cg-kft"/>
                         <outlet property="dailyQuoteAuthor" destination="raq-O9-EWe" id="en3-Id-NxK"/>
+                        <outlet property="favoriteButton" destination="Z3f-Xv-LT9" id="fuH-S1-A1Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
