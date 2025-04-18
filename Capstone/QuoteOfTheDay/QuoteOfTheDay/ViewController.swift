@@ -7,16 +7,39 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
-    
-    @IBOutlet weak var dailyQuote: UILabel!
-    
+  
+  
+   @IBOutlet weak var dailyQuote: UILabel!
+   @IBOutlet weak var dailyQuoteAuthor: UILabel!
+  
+  
+   override func viewDidLoad() {
+       super.viewDidLoad()
+       // Do any additional setup after loading the view.
+       loadDailyQuote()
+   }
+  
+  
+  
+   func loadDailyQuote() {
+           QuoteFetcher.shared.fetchDailyQuote { [weak self] zenQuote, error in
+               DispatchQueue.main.async {
+                   if let error = error {
+                       print("Error fetching quote: \(error)")
+                       self?.dailyQuote.text = "Failed to load quote."
+                       return
+                   }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
+                   if let quote = zenQuote {
+                       self?.dailyQuote.text = "\"\(quote.q)\" - \(quote.a)"
+                   }
+               }
+           }
+       }
+  
+  
 
 }
-
