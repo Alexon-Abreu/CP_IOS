@@ -17,7 +17,22 @@ class ViewController: UIViewController {
     
     @IBAction func didTapFavoriteButton(_ sender: UIButton)
     {
-        sender.isSelected.toggle()
+        guard
+                let text = dailyQuote.text,
+                let author = dailyQuoteAuthor.text
+            else { return }
+
+            let quoteText = text.trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+            let authorText = author.trimmingCharacters(in: CharacterSet(charactersIn: "- "))
+
+            let quote = ZenQuote(q: quoteText, a: authorText)
+
+            if FavoritesManager.shared.isFavorite(quote) {
+                FavoritesManager.shared.removeFavorite(quote)
+            } else {
+                FavoritesManager.shared.addFavorite(quote)
+            }
+            sender.isSelected.toggle()
     }
     
     
@@ -29,23 +44,21 @@ class ViewController: UIViewController {
   
   
   
-   func loadDailyQuote() {
-       QuoteFetcher.shared.fetchDailyQuote { [weak self] zenQuote, error in
-           DispatchQueue.main.async {
-               if let error = error {
-                   print("Error fetching quote: \(error)")
-                   self?.dailyQuote.text = "Failed to load quote."
-                   self?.dailyQuoteAuthor.text = "" // clearing the previous author
-                   return
-               }
+    func loadDailyQuote() {
+        QuoteFetcher.shared.fetchDailyQuote { [weak self] zenQuote, error in
+            DispatchQueue.main.async {
+                // ... existing error handling ...
 
+                if let quote = zenQuote {
+                    self?.dailyQuote.text = "\"\(quote.q)\""
+                    self?.dailyQuoteAuthor.text = "- \(quote.a)"
 
-               if let quote = zenQuote {
-                   self?.dailyQuote.text = "\"\(quote.q)\""
-                   self?.dailyQuoteAuthor.text = "- \(quote.a)"
-               }
-           }
-       }
-   }
+                    // Restore favorite state
+                    self?.favoriteButton.isSelected =
+                        FavoritesManager.shared.isFavorite(quote)
+                }
+            }
+        }
+    }
   
 }
