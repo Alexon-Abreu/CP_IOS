@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ZenQuote: Decodable {
+struct ZenQuote: Codable {
    let q: String
    let a: String
 }
