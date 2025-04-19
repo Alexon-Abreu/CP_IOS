@@ -14,8 +14,10 @@ class ViewController: UIViewController {
    @IBOutlet weak var dailyQuote: UILabel!
    @IBOutlet weak var dailyQuoteAuthor: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    @IBAction func didTapFavoriteButton(_ sender: Any) {
-        
+    
+    @IBAction func didTapFavoriteButton(_ sender: UIButton)
+    {
+        sender.isSelected.toggle()
     }
     
     
