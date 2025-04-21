@@ -34,7 +34,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath)
     let quote = favorites[indexPath.row]
     cell.textLabel?.text = quote.q
-    cell.detailTextLabel?.text = quote.a
+    cell.detailTextLabel?.text = "- \(quote.a)"
     return cell
   }
 }
