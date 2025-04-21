@@ -37,4 +37,19 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     cell.detailTextLabel?.text = "- \(quote.a)"
     return cell
   }
+    
+// Swipe to delete feature
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+  if editingStyle == .delete {
+    // removing it from persistence
+    let quoteToRemove = favorites[indexPath.row]
+    FavoritesManager.shared.removeFavorite(quoteToRemove)
+
+    // updating the local array
+    favorites.remove(at: indexPath.row)
+
+    // cool animation for deleting quotes
+    tableView.deleteRows(at: [indexPath], with: .automatic)
+  }
+}
 }
