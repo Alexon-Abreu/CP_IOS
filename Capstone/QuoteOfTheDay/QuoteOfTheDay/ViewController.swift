@@ -39,7 +39,36 @@ class ViewController: UIViewController {
    override func viewDidLoad() {
        super.viewDidLoad()
        // Do any additional setup after loading the view.
-       loadDailyQuote()
+       
+        // loading today's quote (from cache or fetching a new one if needed)
+        DailyQuoteManager.shared.loadQuote { [weak self] quote in
+            DispatchQueue.main.async {
+                guard let q = quote else {
+                    self?.dailyQuote.text = "Failed to load quote."
+                    self?.dailyQuoteAuthor.text = ""
+                    return
+                }
+                // updating UI with the quote of the day
+                self?.dailyQuote.text = "\"\(q.q)\""
+                self?.dailyQuoteAuthor.text = "- \(q.a)"
+                // restoring the favorite button state
+                self?.favoriteButton.isSelected =
+                    FavoritesManager.shared.isFavorite(q)
+            }
+        }
+
+        // scheduling automatic quote refresh at next 12:00 PM EST
+        DailyQuoteManager.shared.scheduleNextNoonUpdate { [weak self] in
+            DailyQuoteManager.shared.loadQuote { newQuote in
+                DispatchQueue.main.async {
+                    guard let nq = newQuote else { return }
+                    self?.dailyQuote.text = "\"\(nq.q)\""
+                    self?.dailyQuoteAuthor.text = "- \(nq.a)"
+                    self?.favoriteButton.isSelected =
+                        FavoritesManager.shared.isFavorite(nq)
+                }
+            }
+        }
    }
   
   
