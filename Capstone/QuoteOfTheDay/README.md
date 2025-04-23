@@ -17,10 +17,15 @@ Quote of the Day is an iOS app that delivers exactly one fresh, inspirational or
 
 [Evaluation of your app across the following attributes]
 - **Category:** Lifestyle
+
 - **Mobile:** This is a mobile first application built to be easy to use for anyone. User's are given one quote a day, and they have the option to favorite them.
+
 - **Story:** Quotes are very important for self refelction and inner growth. Sometimes, just reading the right quote at right time can dramamtically transcend one's life for the better.
+
 - **Market:** For those curious to think and learn deeply about one's self or the world around them.
+
 - **Habit:** Daily quotes keep users engaged with the app. Furthermore, the app was built to value users time; so users see first what they came for, maintaining user satisfaction.
+
 - **Scope:** The app is near complete for presentation, all major functionalities have been implemnted successfully. Future updates may be implemented to increase capabilities.
 
 ## Product Spec
@@ -29,39 +34,42 @@ Quote of the Day is an iOS app that delivers exactly one fresh, inspirational or
 
 **Required Must-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User loads app
+* User is fetched a quote for the day
+* User can see the author of the fetched quote
+* User can favorite the quote
+* User can visit all their favorited quotes in a seperate tab
+* User can remove quotes from their favorites
+
 
 **Optional Nice-to-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User can request for another quote during the day
+* User can share daily quotes, or quotes from their favorites
 
 ### 2. Screen Archetypes
 
-- [ ] [list first screen here]
-* [list associated required story here]
-* ...
-list second screen here]
-* [list associated required story here]
-* ...
+- [x] Home Screen
+* User is fetched a quote for the day (if opening app for the first time that day) 
+* User can see the author of the fetched quote
+* User can favorite the quote
+- [x] Favorites Screen
+* User can visit all their favorited quotes (oldest to latest)
+* User can remove quotes from their favorites
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Quotes Tab
+* Favorites Tab
 
 **Flow Navigation** (Screen to Screen)
 
-- [ ] [list first screen here]
-* [list screen navigation here]
-* ...
-- [ ] [list second screen here]
-* [list screen navigation here]
-* ...
+- Quotes Screen
+* No further navigation
+- Favorites Screen
+* No further navigation
 
 ## Wireframes
 
