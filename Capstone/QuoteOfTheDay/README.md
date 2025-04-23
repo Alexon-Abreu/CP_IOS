@@ -1,6 +1,3 @@
-Original App Design Project - README Template
-===
-
 # Quote of the Day
 
 ## Table of Contents
@@ -19,12 +16,12 @@ Quote of the Day is an iOS app that delivers exactly one fresh, inspirational or
 ### App Evaluation
 
 [Evaluation of your app across the following attributes]
-- **Category:**
-- **Mobile:**
-- **Story:**
-- **Market:**
-- **Habit:**
-- **Scope:**
+- **Category:** Lifestyle
+- **Mobile:** This is a mobile first application built to be easy to use for anyone. User's are given one quote a day, and they have the option to favorite them.
+- **Story:** Quotes are very important for self refelction and inner growth. Sometimes, just reading the right quote at right time can dramamtically transcend one's life for the better.
+- **Market:** For those curious to think and learn deeply about one's self or the world around them.
+- **Habit:** Daily quotes keep users engaged with the app. Furthermore, the app was built to value users time; so users see first what they came for, maintaining user satisfaction.
+- **Scope:** The app is near complete for presentation, all major functionalities have been implemnted successfully. Future updates may be implemented to increase capabilities.
 
 ## Product Spec
 
