@@ -66,17 +66,15 @@ Quote of the Day is an iOS app that delivers exactly one fresh, inspirational or
 
 **Flow Navigation** (Screen to Screen)
 
-- Quotes Screen
-* No further navigation
-- Favorites Screen
-* No further navigation
+* Quotes Screen
+    - No further navigation
+* Favorites Screen
+    - No further navigation
 
 ## Wireframes
 
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
-
 ### [BONUS] Digital Wireframes & Mockups
+<img src='./storyboard.png' width=600>
 
 ### [BONUS] Interactive Prototype
 
