@@ -78,16 +78,73 @@ Quote of the Day is an iOS app that delivers exactly one fresh, inspirational or
 
 ### [BONUS] Interactive Prototype
 
-## Schema 
-
-[This section will be completed in Unit 9]
+## Schema
 
 ### Models
 
-[Add table of models]
+| Model               | Attributes                                 | Description & Storage                                                                                                                                      |
+|---------------------|--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **ZenQuote**        | `q: String`<br>`a: String`                 | Represents a single quote. Conforms to `Codable` so it can be JSON-encoded/decoded for persistence in `UserDefaults` :contentReference[oaicite:0]{index=0}.  |
+| **SavedDailyQuote** | `quote: ZenQuote`<br>`timestamp: Date`     | Bundles the day’s quote and the fetch time. Stored under keys `"dailyQuote"` (Data) and `"lastFetchDate"` (Date) in `UserDefaults` :contentReference[oaicite:1]{index=1}. |
+| **Favorites**       | `[ZenQuote]`                               | An array of favorited quotes. Stored under key `"favorites"` as JSON-encoded Data in `UserDefaults` :contentReference[oaicite:2]{index=2}.                   |
+
+### Persistence Keys
+
+- **`dailyQuote`**: Holds the JSON-encoded `ZenQuote` for today.  
+- **`lastFetchDate`**: Holds the `Date` the quote was last fetched (in EST).  
+- **`favorites`**: Holds the JSON-encoded array of all `ZenQuote` objects the user has favorited.  
+
+All three keys live in `UserDefaults.standard`, providing fast, persistent, offline-capable storage for your quotes and metadata :contentReference[oaicite:3]{index=3}.
 
 ### Networking
 
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+### Network Requests by Screen
+
+- **Quotes Tab**
+  - **Fetch Daily Quote**  
+    - **Endpoint:** `GET https://zenquotes.io/api/random`  
+    - **Description:** Retrieves a single random quote wrapped in a one-element JSON array. Used by `DailyQuoteManager.loadQuote()`.
+  - **Manual Refresh (“Get New Quote” button)**
+    - **Endpoint:** `GET https://zenquotes.io/api/random`  
+    - **Description:** Bypasses the daily cache and always fetches a new random quote when tapped.
+
+- **Favorites Tab**
+  - **Network Requests:** _None_  
+  - **Notes:** All favorites are loaded from local storage via  
+    ```swift
+    FavoritesManager.shared.getFavorites()
+    ```
+
+### Code Snippets for Network Requests
+
+```swift
+// QuoteFetcher.swift
+func fetchDailyQuote(completion: @escaping (ZenQuote?, Error?) -> Void) {
+    guard let url = URL(string: "https://zenquotes.io/api/random") else {
+        completion(nil, NSError(domain: "Invalid URL", code: 0))
+        return
+    }
+
+    URLSession.shared.dataTask(with: url) { data, response, error in
+        if let error = error {
+            completion(nil, error)
+            return
+        }
+        guard let data = data else {
+            completion(nil, NSError(domain: "No Data", code: 0))
+            return
+        }
+        do {
+            let quotes = try JSONDecoder().decode([ZenQuote].self, from: data)
+            completion(quotes.first, nil)
+        } catch {
+            completion(nil, error)
+        }
+    }
+    .resume()
+}
+```
+###  ZenQuotes Endpoints
+- GET https://zenquotes.io/api/today
+- GET https://zenquotes.io/api/quotes/author/{author-name}
+- GET https://zenquotes.io/api/authors
