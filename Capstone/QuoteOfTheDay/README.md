@@ -14,7 +14,7 @@
 Quote of the Day is an iOS app that delivers exactly one fresh, inspirational or thought-provoking quote each day at noon (EST), ensuring users receive a moment of daily reflection. All quotes are saved locally in UserDefaults (cached), providing lightning-fast load times and offline access that persists seamlessly across app launches. Additionally, users can tap the heart icon to favorite any quote, building a personalized collection that’s neatly organized in the Favorites tab for users to easily revisit.
 
 ## Video Walkthrough
-![Walkthrough Video]()
+![Walkthrough Video](https://github.com/Alexon-Abreu/CP_IOS/blob/cf7b63489f8aa1504ffd28e34d7a8e41a78ac980/Capstone/QuoteOfTheDay/demo.gif)
 
 ### App Evaluation
 

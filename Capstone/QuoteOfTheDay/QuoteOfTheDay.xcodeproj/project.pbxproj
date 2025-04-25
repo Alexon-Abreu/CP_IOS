@@ -14,6 +14,7 @@
 		001E182E2DB1D644009F0260 /* Exceptions for "QuoteOfTheDay" folder in "QuoteOfTheDay" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Assets.xcassets,
 				Info.plist,
 			);
 			target = 001E181B2DB1D642009F0260 /* QuoteOfTheDay */;
